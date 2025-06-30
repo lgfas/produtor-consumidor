@@ -8,11 +8,6 @@
 int executar = 1;
 int frame_id = 1;
 
-void parar_execucao(int sig) {
-    executar = 0;
-    printf("\n\n⛔ Encerrando o sistema com monitor!\n");
-}
-
 void *produtor(void *arg) {
     while (executar) {
         Frame f = { .id = frame_id++ };
@@ -32,7 +27,6 @@ void *consumidor(void *arg) {
 }
 
 int main() {
-    signal(SIGINT, parar_execucao);
     inicializar_monitor();
 
     pthread_t t_prod, t_cons1, t_cons2;

@@ -20,12 +20,6 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 sem_t sem_vazio;  // controla espaço disponível
 sem_t sem_cheio;  // controla itens disponíveis
 
-// Tratador de sinal (CTRL+C)
-void parar_execucao(int sig) {
-    executar = 0;
-    printf("\n\n⛔ Encerrando a execução do sistema de vigilância (semáforo)...\n");
-}
-
 // Exibe o estado atual do buffer circular
 void imprimir_estado() {
     printf("📦 Buffer: [");
@@ -89,7 +83,6 @@ void *consumidor(void *arg) {
 }
 
 int main() {
-    signal(SIGINT, parar_execucao); // permite parar com CTRL+C
 
     pthread_t t_prod, t_cons1, t_cons2;
 

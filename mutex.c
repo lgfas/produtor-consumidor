@@ -15,15 +15,9 @@ int count = 0;
 int in = 0;
 int out = 0;
 int frame_id = 1;
-int executar = 1; // flag para parar com CTRL+C
+int executar = 1;
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-
-// Tratador de sinal para encerrar com CTRL+C
-void parar_execucao(int sig) {
-    executar = 0;
-    printf("\n\n⛔ Encerrando a execução do sistema de vigilância...\n");
-}
 
 void imprimir_estado() {
     printf("📦 Buffer: [");
@@ -91,7 +85,6 @@ void *consumidor(void *arg) {
 
 
 int main() {
-    signal(SIGINT, parar_execucao); // permite parar com CTRL+C
 
     pthread_t t_prod, t_cons1, t_cons2;
 
