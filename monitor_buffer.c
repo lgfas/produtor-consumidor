@@ -16,10 +16,6 @@ void inicializar_monitor() {
     in = out = count = 0;
 }
 
-void destruir_monitor() {
-    // nada aqui, pois mutex/cond estão estáticos
-}
-
 void produzir(Frame f) {
     pthread_mutex_lock(&mutex);
 

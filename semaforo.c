@@ -20,7 +20,7 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 sem_t sem_vazio;  // controla espaço disponível
 sem_t sem_cheio;  // controla itens disponíveis
 
-// Exibe o estado atual do buffer circular
+// Exibe o estado atual do buffer
 void imprimir_estado() {
     printf("📦 Buffer: [");
     for (int i = 0; i < BUFFER_SIZE; i++) {

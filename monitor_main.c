@@ -38,6 +38,5 @@ int main() {
     pthread_join(t_cons1, NULL);
     pthread_join(t_cons2, NULL);
 
-    destruir_monitor();
     return 0;
 }
